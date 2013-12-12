@@ -14,7 +14,7 @@ by installing the cert as a Trusted Root CA Cert.
 Source: http://www.clintmcguire.com/scripts/get-citrixlicenses/
 Author: Clint McGuire
 Version 1.0
-Copyrigth 2013
+Copyright 2013
 
 .EXAMPLES
 PS> .\Get-CitrixLicenses.ps1
