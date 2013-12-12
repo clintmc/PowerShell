@@ -3,7 +3,7 @@
 Reports on Citrix licenses in use for selected products.
 
 .DESCRIPTION
-This script will query your Citrix Licnese server and output the in use and total licenses for individual products.
+This script will query your Citrix License server and output the in use and total licenses for individual products.
 
 .NOTES
 Requires Citrix Licensing Snapin (Citrix.Licensing.Admin.V1)
@@ -11,14 +11,14 @@ If your License server has a self-signed cert you may get license
 errors when running this.  I've resolved this in my test environments
 by installing the cert as a Trusted Root CA Cert.
 
-Source: http://www.clintmcguire.com
+Source: http://www.clintmcguire.com/scripts/get-citrixlicenses/
 Author: Clint McGuire
 Version 1.0
 Copyrigth 2013
 
 .EXAMPLES
 PS> .\Get-CitrixLicenses.ps1
-XenApp Enterprise Licenses in use: 90 of 150
+Using 71 Citrix XenApp Enterprise of 132 available.
 
 #>
 ############################################################################################
@@ -28,7 +28,7 @@ XenApp Enterprise Licenses in use: 90 of 150
 #E.G. "https://licensingservername:8083"
 $ServerAddress = 
 
-#Enter the license type you would like to output, this can be a comma separeated list, include each otption in single quotes
+#Enter the license type you would like to output, this can be a comma separated list, include each option in single quotes
 #E.G. 'Citrix XenApp Enterprise','Citrix XenDesktop Enterprise','Citrix EdgeSight for XenApp'
 $LicenseTypeOutput = 
 
