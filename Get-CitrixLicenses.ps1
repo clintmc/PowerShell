@@ -17,8 +17,8 @@ Version 1.0
 Copyrigth 2013
 
 .EXAMPLES
-PS> .\Check-XenAppEnterpriseLic.ps1
-XenApp Enterprise Licenses in use: 90
+PS> .\Get-CitrixLicenses.ps1
+XenApp Enterprise Licenses in use: 90 of 150
 
 #>
 ############################################################################################
@@ -83,5 +83,5 @@ Foreach ($Type in $LicenseTypeOutput)
 {
 	$OutPutLicInUse = $LicInUse.Get_Item($Type)
 	$OutPutAvail = $LicAvailable.Get_Item($Type)
-	Write-Host $Type " in use: " $OutPutLicInUse " of " $OutPutAvail
+	Write-Host "Using" $OutPutLicInUse  $Type  "of" $OutPutAvail "available."
 }
