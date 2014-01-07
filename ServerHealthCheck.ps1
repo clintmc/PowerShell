@@ -231,29 +231,41 @@ ForEach ($Server in $ServerList)
 	else { $tests.Ping = "SUCCESS", $result 
 	
 		# Test Ports connectivity
-		$Test.Port = "SUCCESS", $true
-		forEach ($port in $Ports.item($server)) 
+		$PortTest = $true
+		While ($PortTest = $true)
 		{
-			$t = New-Object Net.Sockets.TcpClient $Server, $Port 
-			if($t.Connected)
+			forEach ($port in $Ports.item($server)) 
 			{
-				$Test.Port = "SUCCESS", $true
-			}
-			else
-			{
-				$Test.Port = "ERROR", $false
+				$t = New-Object Net.Sockets.TcpClient $Server, $Port 
+				if($t.Connected)
+				{
+					$Test.Port = "SUCCESS", $true
+				}
+				else
+				{
+					$Test.Port = "ERROR", $false
+					$PortTest = $False
+				}
 			}
 		}
 		
 		# Check services
-		forEach {$service in $Services.item($server))
+		$ServiceTest = $true
+		While ($ServiceTest = $true)
 		{
-			if ((Get-Service -Name "IMAService" -ComputerName $server).Status -Match "Running") {
-				"$service running..." | LogMe
-				$tests.IMA = "SUCCESS", "Success"
-			} else {
-				"IMA service stopped"  | LogMe -display -error
-				$tests.IMA = "ERROR", "Error"
+			forEach {$service in $Services.item($server))
+			{
+				if ((Get-Service -Name "IMAService" -ComputerName $server).Status -Match "Running") 
+				{
+					"$service running..." | LogMe
+					$tests.Servie = "SUCCESS", "Success"
+				} 
+				else 
+				{
+					"$service stopped"  | LogMe -display -error
+					$tests.Servcie = "ERROR", "Error"
+					$ServiceTest = $False
+				}
 			}
 		}
 		
