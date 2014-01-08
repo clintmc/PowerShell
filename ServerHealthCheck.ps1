@@ -1,10 +1,14 @@
 # Server Health Check
 # Give this script a list of servers and the ports and services it should check on each of them 
 # and it will email you a report about them
-#
+# 
 # Borrowed heavily from XenAppServerHealthCheck by
 # Jason Poyner - techblog.deptive.co.nz
 #
+# Version 1.0
+# Clint McGuire
+# January 7, 2014
+
 
 ############################################
 # Modify this section
