@@ -17,7 +17,7 @@ Copyrigth 2011,2013
 http://www.clintmcguire.com/get-alluserlastlogon/
 
 .EXAMPLES
-PS> Get-AllUserLastLogon
+PS> Get-AllUserLastLogon.ps1
 
 #>
 $DCs = get-qadcomputer -ComputerRole DomainController
