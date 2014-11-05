@@ -328,7 +328,14 @@ ForEach ($Server in $ServerList)
 			$tests.WMI = "SUCCESS", "Success"
 			$LBTime=$wmi.ConvertToDateTime($wmi.Lastbootuptime)
 			[TimeSpan]$uptime=New-TimeSpan $LBTime $(get-date)
-			$tests.Uptime = "SUCCESS", $uptime.days		
+            if ($uptime.Days -le 3)
+            {
+                $tests.Uptime = "WARNING", $uptime.Days
+            }
+			else
+            {
+                $tests.Uptime = "SUCCESS", $uptime.days		
+            }
 		}
 		else 
 		{ 
