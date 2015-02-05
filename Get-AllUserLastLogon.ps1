@@ -37,11 +37,13 @@ ForEach ($DC in $DCs) {
 		$UserName = $User.DisplayName
 		if ($LastLogon.ContainsKey($UserName))
 		{
-				if ($LastLogon.Get_Item($UserName) -le $Time) {
-				$LastLogon.Set_Item($UserName, $Time)
-			}
+				if ($LastLogon.Get_Item($UserName) -le $Time) 
+				{
+					$LastLogon.Set_Item($UserName, $Time)
+				}
 		}
-		else{
+		else
+		{
 			$LastLogon.Add($UserName, $Time)
 		}
 	}
