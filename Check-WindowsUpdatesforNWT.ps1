@@ -16,7 +16,7 @@ I have not added additional OS versions, yet, feel free to add them to the top o
 Source: 
 Author: Clint McGuire
 Version 1.0
-Copyrigth 2015
+Copyright 2015
 .LINK
 
 
@@ -26,11 +26,7 @@ Copyrigth 2015
 #>
 
 
-
-
-
-
-#Determin Windows version to establish correct list of udpates to check
+#Determine Windows version to establish correct list of udpates to check
 
 $WinVersion = read-host 'For Windows 2008 R2 press 1, for ... '
 If ($WinVersion -eq 1)
