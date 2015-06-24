@@ -1,0 +1,22 @@
+<#
+Add new email address based on Domain and user alias
+#>
+
+#Get new domain
+
+$domain = Read-Host "What is the new domain name"
+
+#Get Mailboxes
+
+$allmbxs = Get-Mailbox 
+
+#Add new email address to all mailboxes
+
+ForEach ($mbx in $allmbxs)
+{
+  $alias = $mbx.alias
+  $NewAddress = $alias + "@" + $domain
+  Set-Mailbox $mbx -EmailAddresses @{add=$newAddress}
+}
+
+#Set-Mailbox "" -EmailAddresses @{add=""}
