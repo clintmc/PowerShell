@@ -1,5 +1,5 @@
 <#
-Add new email address based on Domain and user alias
+Add new email address to all mailboxes in a database, based on Domain and user alias
 #>
 
 #Get new domain
